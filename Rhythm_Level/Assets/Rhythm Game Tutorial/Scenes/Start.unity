@@ -1724,6 +1724,13 @@ MonoBehaviour:
   music: {fileID: 1584714083}
   startPlaying: 0
   beatScroller: {fileID: 1986895792}
+  currentScore: 0
+  scorePerNote: 100
+  scoreText: {fileID: 1791990394}
+  currentMultiplier: 0
+  multiplierTracker: 0
+  multiplierThresholds: 
+  mulitplierText: {fileID: 2046179001}
 --- !u!4 &1410121929
 Transform:
   m_ObjectHideFlags: 0
@@ -1736,7 +1743,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1515176303
 GameObject:
@@ -1977,7 +1984,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1601014004
 GameObject:
@@ -2076,7 +2083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1605572179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2154,7 +2161,7 @@ RectTransform:
   - {fileID: 1894841109}
   - {fileID: 766832846}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2225,7 +2232,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1791990392
 GameObject:
@@ -2930,7 +2937,7 @@ Transform:
   - {fileID: 821950004}
   - {fileID: 1965286438}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1991264645
 GameObject:
@@ -3262,5 +3269,5 @@ Transform:
   - {fileID: 335185281}
   - {fileID: 1954822627}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
