@@ -29,70 +29,6 @@ public class ChangePlayer : MonoBehaviour
         Swap(); 
     }
 
-    void UpdateRefactor()
-    {
-        if (currentSwitchCooldown > 0) {
-            currentSwitchCooldown -= Time.deltaTime;
-            return;
-        }
-        
-        switch(Input.inputString){
-            case "1":
-                keyCode = 0;
-                if(character == possibleCharacters[keyCode])
-                {
-                    Debug.Log("Already this character");
-                }
-                else
-                {
-                    whichCharacter = keyCode;
-                    currentSwitchCooldown = switchCooldown;
-                }
-                Swap();
-                break;
-            case "2":
-                keyCode = 1;
-                if(character == possibleCharacters[keyCode])
-                {
-                    Debug.Log("Already this character");
-                }
-                else
-                {
-                    whichCharacter = keyCode;
-                    currentSwitchCooldown = switchCooldown;
-                }
-                Swap();
-                break;
-            case "3":
-                keyCode = 2;
-                if(character == possibleCharacters[keyCode])
-                {
-                    Debug.Log("Already this character");
-                }
-                else
-                {
-                    whichCharacter = keyCode;
-                    currentSwitchCooldown = switchCooldown;
-                }
-                Swap();
-                break;
-            case "4":
-                keyCode = 3;
-                if(character == possibleCharacters[keyCode])
-                {
-                    Debug.Log("Already this character");
-                }
-                else
-                {
-                    whichCharacter = keyCode;
-                    currentSwitchCooldown = switchCooldown;
-                }
-                Swap();
-                break;
-        }
-    }
-
-    
     void Update()
     {
         //Player1
@@ -161,12 +97,13 @@ public class ChangePlayer : MonoBehaviour
             currentSwitchCooldown -= Time.deltaTime;
         }
     }
+    
     void Swap()
     {
         //Player
         character = possibleCharacters[whichCharacter];
         character.GetComponent<PlayerMovement>().enabled = true;
-        character.GetComponent<CameraMovement>().enabled = true;
+        //character.GetComponent<CameraMovement>().enabled = true;
         character.GetComponent<Collider>().enabled = true;
 
         //Followers
@@ -175,7 +112,7 @@ public class ChangePlayer : MonoBehaviour
             if(possibleCharacters[i]!= character)
             {
                 possibleCharacters[i].GetComponent<PlayerMovement>().enabled = false;
-                possibleCharacters[i].GetComponent<CameraMovement>().enabled = false;
+                //possibleCharacters[i].GetComponent<CameraMovement>().enabled = false;
                 possibleCharacters[i].GetComponent<Collider>().enabled = false;
             }
         } 
@@ -188,7 +125,9 @@ public class ChangePlayer : MonoBehaviour
         GetComponent<Abilities>().character = character.name;
 
         //Set character to enemy to follow
-        GameObject.Find("Enemies").GetComponentInChildren<EnemyMovement>().player = character;
-        GameObject.Find("Enemies").GetComponentInChildren<EnemyHealth>().player = character;
+        //GameObject.Find("Enemies").GetComponentInChildren<EnemyMovement>().player = character;
+        //GameObject.Find("Enemies").GetComponentInChildren<EnemyHealth>().player = character;
     }
+
+
 }

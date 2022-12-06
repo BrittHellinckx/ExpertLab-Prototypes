@@ -9,6 +9,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 playerVelocity;
     Vector3 moveDirection = Vector3.zero;
     float speed;
+    [Header("reset")]
+    public List<Transform> characters;
+    List<Vector3> startPositions = new List<Vector3>();
 
     [Header("Charcter specific")]
     float regularSpeed;
@@ -19,6 +22,14 @@ public class PlayerMovement : MonoBehaviour
     {
         cc = gameObject.GetComponent<CharacterController>();
 
+        //Set characters start position
+        characters = gameObject.GetComponentInParent<ChangePlayer>().possibleCharacters;
+        for(int i = 0; i< characters.Count; i++)
+        {
+            startPositions.Add(characters[i].transform.position);
+        }  
+
+        //Set characters speed/ jump abilities
         regularSpeed = GetComponentInParent<Abilities>().regularSpeed;
         sprintSpeed = GetComponentInParent<Abilities>().sprintSpeed;
         jumpBoost = GetComponentInParent<Abilities>().jumpBoost;
@@ -53,5 +64,35 @@ public class PlayerMovement : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         cc.Move(playerVelocity * Time.deltaTime);
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if(collider.tag == "Respawn")
+        {
+            GetComponentInParent<PlayerHealth>().TakeDamage(15);
+            for(int i = 0; i< characters.Count; i++)
+            {
+                cc.enabled = false;
+                characters[i].transform.position = startPositions[i];
+                cc.enabled = true;
+            } 
         }
+        if(collider.tag == "Previous")
+        {
+            Debug.Log("load previous platform");
+        }
+        if(collider.tag == "Next")
+        {
+            Debug.Log("load next platform");
+        }
+        if(collider.tag == "Finish")
+        {
+            Debug.Log("Reached the end");
+        }
+        if(collider.tag == "Music")
+        {
+            //enable music script
+        }
+    }
 }
