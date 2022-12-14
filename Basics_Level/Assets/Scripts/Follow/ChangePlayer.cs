@@ -103,7 +103,7 @@ public class ChangePlayer : MonoBehaviour
         //Player
         character = possibleCharacters[whichCharacter];
         character.GetComponent<PlayerMovement>().enabled = true;
-        //character.GetComponent<CameraMovement>().enabled = true;
+        character.GetComponent<CameraMovement>().enabled = true;
         character.GetComponent<Collider>().enabled = true;
 
         //Followers
@@ -112,7 +112,7 @@ public class ChangePlayer : MonoBehaviour
             if(possibleCharacters[i]!= character)
             {
                 possibleCharacters[i].GetComponent<PlayerMovement>().enabled = false;
-                //possibleCharacters[i].GetComponent<CameraMovement>().enabled = false;
+                possibleCharacters[i].GetComponent<CameraMovement>().enabled = false;
                 possibleCharacters[i].GetComponent<Collider>().enabled = false;
             }
         } 
@@ -125,8 +125,12 @@ public class ChangePlayer : MonoBehaviour
         GetComponent<Abilities>().character = character.name;
 
         //Set character to enemy to follow
-        //GameObject.Find("Enemies").GetComponentInChildren<EnemyMovement>().player = character;
-        //GameObject.Find("Enemies").GetComponentInChildren<EnemyHealth>().player = character;
+        for( int i = 0; i<5; i++)
+        {
+            GameObject.Find("Enemies").transform.GetChild(i).GetComponent<EnemyMovement>().player = character;
+            GameObject.Find("Enemies").transform.GetChild(i).GetComponent<EnemyHealth>().player = character;         
+        }
+
     }
 
 
