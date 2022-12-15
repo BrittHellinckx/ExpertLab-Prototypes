@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public Slider healthSlider;
     void Start()
     {
-        healthSlider = GetComponentInChildren<Slider>();
+        //healthSlider = GetComponent<Slider>();
         healthSlider.maxValue = health;
         healthSlider.value = health;
     }

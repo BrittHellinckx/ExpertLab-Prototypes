@@ -9,15 +9,15 @@ public class CameraMovement : MonoBehaviour
     public GameObject player;
     Vector2 screenBounds;
     
-    [Header("Level Movement")]
-    bool enemyLevelShowing;
-    public Transform enemyCameraSpawn;
-    bool waterLevelShowing;
-    public Transform waterfallCameraSpawn;
+    //[Header("Level Movement")]
+    //bool enemyLevelShowing;
+    //public Transform enemyCameraSpawn;
+    //bool waterLevelShowing;
+    //public Transform waterfallCameraSpawn;
     void Start()
     {
-        enemyLevelShowing = true;
-        waterLevelShowing = false;
+        //enemyLevelShowing = true;
+        //waterLevelShowing = false;
         cameraPos = Camera.main.transform.position;
     }
     void Update()
@@ -42,6 +42,32 @@ public class CameraMovement : MonoBehaviour
         Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
         //At the left edge
         if(pos.x < 0.0) {
+            cameraPos.x = cameraPos.x - 35;
+            Camera.main.transform.position = cameraPos;
+        }
+
+        //At the right edge
+        if(1.0 < pos.x) {
+            cameraPos.x = cameraPos.x + 35;
+            Camera.main.transform.position = cameraPos;
+        }
+
+        //At bottom edge
+        if(pos.y < 0) {
+            cameraPos.y = cameraPos.y - 8;
+            Camera.main.transform.position = cameraPos;
+        };
+
+        //At top edge
+        if(0.9 < pos.y) {
+            cameraPos.y = cameraPos.y + 8;
+            Camera.main.transform.position = cameraPos;
+        };
+
+
+        /*
+        //At the left edge
+        if(pos.x < 0.0) {
             if(waterLevelShowing){
                 enemyLevelShowing = true;
                 waterLevelShowing = false;
@@ -59,15 +85,6 @@ public class CameraMovement : MonoBehaviour
                 Camera.main.transform.position = cameraPos;
             }
         }
-
-        //At bottom edge
-        if(pos.y < 0) {
-            
-        };
-
-        //At top edge
-        if(0.9 < pos.y) {
-            
-        };
+        */
     }
 }

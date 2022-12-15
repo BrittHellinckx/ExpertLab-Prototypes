@@ -5,29 +5,33 @@ using UnityEngine;
 public class LogSpawner : MonoBehaviour
 {
     public GameObject logPrefab;
-    public bool musicPlaying = true;
+    public bool musicPlaying;
     public Transform spawn;
     bool canSpawnLog = true;
-    public float timeBetweenLogs =1f; // wordt beat 
+    public float timeBetweenLogs; // wordt beat 
 
     Vector3 spawnLeft;
     Vector3 spawnRight;
     bool switchSpawn = true;
     void Start()
     {
+        //SPAWNS
         spawn = gameObject.transform;
         spawnLeft = new Vector3(spawn.position.x +1,spawn.position.y,spawn.position.z);
         spawnRight= new Vector3(spawn.position.x -1,spawn.position.y,spawn.position.z);
+
+        //AUDIO
+        musicPlaying = false;		
+        timeBetweenLogs = 98/60f; // Replace with automatic beat detection
     }
 
     void Update()
     {
-        if(musicPlaying && canSpawnLog)
+       if(musicPlaying &&canSpawnLog)
         {
-            StartCoroutine(SpawningLog());
-        }
+           StartCoroutine(SpawningLog());
+        } 
     }
-
     IEnumerator SpawningLog()
     {
         canSpawnLog = false;

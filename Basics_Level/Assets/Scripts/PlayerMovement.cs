@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -23,18 +24,29 @@ public class PlayerMovement : MonoBehaviour
     {
         cc = gameObject.GetComponent<CharacterController>();
 
-        //Set characters start position
-        characters = gameObject.GetComponentInParent<ChangePlayer>().possibleCharacters;
-        for(int i = 0; i< characters.Count; i++)
+        if(SceneManager.GetActiveScene().name =="CombinedScene")
         {
-            startPositions.Add(characters[i].transform.position);
-        }  
+            //Set characters start position
+            characters = gameObject.GetComponentInParent<ChangePlayer>().possibleCharacters;
+            for(int i = 0; i< characters.Count; i++)
+            {
+                startPositions.Add(characters[i].transform.position);
 
-        //Set characters speed/ jump abilities
-        regularSpeed = GetComponentInParent<Abilities>().regularSpeed;
-        sprintSpeed = GetComponentInParent<Abilities>().sprintSpeed;
-        jumpBoost = GetComponentInParent<Abilities>().jumpBoost;
-        
+                //Set characters speed/ jump abilities
+                regularSpeed = GetComponentInParent<Abilities>().regularSpeed;
+                sprintSpeed = GetComponentInParent<Abilities>().sprintSpeed;
+                jumpBoost = GetComponentInParent<Abilities>().jumpBoost;
+
+            } 
+        }
+        else if(SceneManager.GetActiveScene().name =="DoorScene")
+        {
+            Debug.Log("hope it worked");
+
+            regularSpeed = 2;
+            sprintSpeed = 3;
+            jumpBoost = 1;
+        }        
     }
 
     void Update()
@@ -86,21 +98,14 @@ public class PlayerMovement : MonoBehaviour
                 cc.enabled = true;
             } 
         }
-        if(collider.tag == "Previous")
-        {
-            GameObject.Find("LevelManager").GetComponent<LevelManager>().SetEnemyLevelSpawn();
-        }
-        if(collider.tag == "Next")
-        {
-            GameObject.Find("LevelManager").GetComponent<LevelManager>().setWaterfallLevelSpawn();
-        }
         if(collider.tag == "Finish")
         {
-            Debug.Log("Reached the end");
+            SceneManager.LoadScene("DoorScene");
         }
-        if(collider.tag == "Music")
+        if(collider.tag == "Music" && !GameObject.Find("LogSpawner").GetComponent<LogSpawner>().musicPlaying)
         {
-            //enable music script
+            GameObject.Find("LogSpawner").GetComponent<LogSpawner>().musicPlaying = true;
+            GameObject.Find("Main Camera").GetComponent<AudioSource>().Play();
         }
     }
 }
