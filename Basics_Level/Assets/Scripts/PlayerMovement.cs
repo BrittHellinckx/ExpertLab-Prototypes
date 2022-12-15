@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private float gravityValue = -9.81f;
     private Vector3 playerVelocity;
     Vector3 moveDirection = Vector3.zero;
+    public bool canMove =true;
     float speed;
     [Header("reset")]
     public List<Transform> characters;
@@ -37,6 +38,13 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Update()
+    {
+        if(canMove)
+        {
+            MovePlayer();
+        }
+    }
+    void MovePlayer()
     {
         if(cc.isGrounded){           
             //Jump
@@ -80,11 +88,11 @@ public class PlayerMovement : MonoBehaviour
         }
         if(collider.tag == "Previous")
         {
-            Debug.Log("load previous platform");
+            GameObject.Find("LevelManager").GetComponent<LevelManager>().SetEnemyLevelSpawn();
         }
         if(collider.tag == "Next")
         {
-            Debug.Log("load next platform");
+            GameObject.Find("LevelManager").GetComponent<LevelManager>().setWaterfallLevelSpawn();
         }
         if(collider.tag == "Finish")
         {

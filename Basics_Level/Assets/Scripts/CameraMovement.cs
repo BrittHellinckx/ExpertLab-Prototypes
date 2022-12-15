@@ -8,8 +8,16 @@ public class CameraMovement : MonoBehaviour
     Vector3 cameraPos;
     public GameObject player;
     Vector2 screenBounds;
+    
+    [Header("Level Movement")]
+    bool enemyLevelShowing;
+    public Transform enemyCameraSpawn;
+    bool waterLevelShowing;
+    public Transform waterfallCameraSpawn;
     void Start()
     {
+        enemyLevelShowing = true;
+        waterLevelShowing = false;
         cameraPos = Camera.main.transform.position;
     }
     void Update()
@@ -34,17 +42,21 @@ public class CameraMovement : MonoBehaviour
         Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
         //At the left edge
         if(pos.x < 0.0) {
-            if(SceneManager.GetActiveScene().name =="CombinedScene" && GameObject.Find("LevelManager").GetComponent<LevelManager>().waterfallLevelShowing)
-            {
-                GameObject.Find("LevelManager").GetComponent<LevelManager>().SetEnemyLevelSpawn();
+            if(waterLevelShowing){
+                enemyLevelShowing = true;
+                waterLevelShowing = false;
+                cameraPos = enemyCameraSpawn.position;
+                Camera.main.transform.position = cameraPos;
             }
         }
 
         //At the right edge
         if(1.0 < pos.x) {
-            if(SceneManager.GetActiveScene().name =="CombinedScene" && GameObject.Find("LevelManager").GetComponent<LevelManager>().enemyLevelShowing)
-            {
-                GameObject.Find("LevelManager").GetComponent<LevelManager>().setWaterfallLevelSpawn();
+            if (enemyLevelShowing){
+                enemyLevelShowing = false;
+                waterLevelShowing = true;
+                cameraPos = waterfallCameraSpawn.position;
+                Camera.main.transform.position = cameraPos;
             }
         }
 

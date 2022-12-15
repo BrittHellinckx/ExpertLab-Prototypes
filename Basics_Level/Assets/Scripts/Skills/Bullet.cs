@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     }
     void Update()
     {
-        damage = GetComponent<Gun>().damageDone;
+        damage = 1; //GetComponent<Gun>().damageDone;
     }
     void OnTriggerEnter(Collider collider)
     {
