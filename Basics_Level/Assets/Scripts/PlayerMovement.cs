@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("reset")]
     public List<Transform> characters;
     List<Vector3> startPositions = new List<Vector3>();
+    public Vector3 respawn;
 
     [Header("Charcter specific")]
     float regularSpeed;
@@ -94,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
             for(int i = 0; i< characters.Count; i++)
             {
                 cc.enabled = false;
-                characters[i].transform.position = startPositions[i];
+                characters[i].transform.position = respawn; //startPositions[i];
                 cc.enabled = true;
             } 
         }
