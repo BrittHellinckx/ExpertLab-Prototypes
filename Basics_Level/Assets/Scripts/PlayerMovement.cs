@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
             for(int i = 0; i< characters.Count; i++)
             {
                 cc.enabled = false;
-                characters[i].transform.position = respawn; //startPositions[i];
+                transform.position = respawn; //startPositions[i];
                 cc.enabled = true;
             } 
         }

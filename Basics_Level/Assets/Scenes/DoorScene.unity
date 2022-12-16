@@ -320,6 +320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0bad1ad7d2e0147bf3d2efbcac3453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endText: {fileID: 1247103697}
+  instructionText: {fileID: 561442613}
 --- !u!1 &180303389
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,6 +444,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0bad1ad7d2e0147bf3d2efbcac3453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endText: {fileID: 1247103697}
+  instructionText: {fileID: 561442613}
 --- !u!1 &288115163
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0bad1ad7d2e0147bf3d2efbcac3453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endText: {fileID: 1247103697}
+  instructionText: {fileID: 561442613}
 --- !u!1 &327332242
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,6 +761,87 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 509014927}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &561442612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 561442615}
+  - component: {fileID: 561442614}
+  - component: {fileID: 561442613}
+  m_Layer: 5
+  m_Name: InstructionText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &561442613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561442612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 75
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 5
+    m_MaxSize: 75
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Find the right door
+
+    Click E to interact'
+--- !u!222 &561442614
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561442612}
+  m_CullTransparentMesh: 1
+--- !u!224 &561442615
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561442612}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 809017969}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &607776349
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,6 +1152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0bad1ad7d2e0147bf3d2efbcac3453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endText: {fileID: 1247103697}
+  instructionText: {fileID: 561442613}
 --- !u!1 &785498504
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,6 +1275,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 785498506}
+  - {fileID: 1247103699}
+  - {fileID: 561442615}
   m_Father: {fileID: 1885189564}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1251,7 +1342,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1309,6 +1400,7 @@ MonoBehaviour:
   canMove: 1
   characters:
   - {fileID: 846030573}
+  respawn: {x: 0, y: 0, z: 0}
 --- !u!114 &846030575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1730,6 +1822,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0bad1ad7d2e0147bf3d2efbcac3453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endText: {fileID: 1247103697}
+  instructionText: {fileID: 561442613}
 --- !u!1 &1134966071
 GameObject:
   m_ObjectHideFlags: 0
@@ -1869,6 +1963,85 @@ MonoBehaviour:
   - {fileID: 2081756600}
   musicPrefab: {fileID: 7112752199901393061, guid: 4ca7e14e9112c5e4790758c109957616,
     type: 3}
+--- !u!1 &1247103696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1247103699}
+  - component: {fileID: 1247103698}
+  - component: {fileID: 1247103697}
+  m_Layer: 5
+  m_Name: EndText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1247103697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247103696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 75
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 7
+    m_MaxSize: 75
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: End of prototype
+--- !u!222 &1247103698
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247103696}
+  m_CullTransparentMesh: 1
+--- !u!224 &1247103699
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247103696}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 809017969}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1384575796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1991,6 +2164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0bad1ad7d2e0147bf3d2efbcac3453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endText: {fileID: 1247103697}
+  instructionText: {fileID: 561442613}
 --- !u!1 &1538268902
 GameObject:
   m_ObjectHideFlags: 0
@@ -2573,6 +2748,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0bad1ad7d2e0147bf3d2efbcac3453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endText: {fileID: 1247103697}
+  instructionText: {fileID: 561442613}
 --- !u!1 &2043139901
 GameObject:
   m_ObjectHideFlags: 0
@@ -2695,6 +2872,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0bad1ad7d2e0147bf3d2efbcac3453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endText: {fileID: 1247103697}
+  instructionText: {fileID: 561442613}
 --- !u!1 &2081756600
 GameObject:
   m_ObjectHideFlags: 0
@@ -2817,3 +2996,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0bad1ad7d2e0147bf3d2efbcac3453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endText: {fileID: 1247103697}
+  instructionText: {fileID: 561442613}

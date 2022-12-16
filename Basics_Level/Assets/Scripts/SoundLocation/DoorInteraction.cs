@@ -2,10 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DoorInteraction : MonoBehaviour
 {
     private bool triggerActive = false;
+    public Text endText;
+    public Text instructionText;
+    void Start(){
+        endText.gameObject.SetActive(false);
+        Destroy(instructionText, 2);
+    }
  
     public void OnTriggerEnter(Collider collider)
     { 
@@ -36,7 +43,8 @@ public class DoorInteraction : MonoBehaviour
         if(gameObject.GetComponentInChildren<AudioSource>() != null)
         {
             Debug.Log("Load next level");
-            //Load next level -> scenemanager
+            endText.gameObject.SetActive(true);
+
         }else{
             GameObject.Find("Player").GetComponent<PlayerHealth>().TakeDamage(20);
             gameObject.GetComponentInParent<MusicSpawner>().RespawnMusic();

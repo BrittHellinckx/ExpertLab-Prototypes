@@ -44,17 +44,5 @@ public class CameraMovement : MonoBehaviour
             cameraPos.x = cameraPos.x + 40;
             Camera.main.transform.position = cameraPos;
         }
-
-        //At bottom edge
-        if(pos.y < 0) {
-            cameraPos.y = cameraPos.y - 8;
-            Camera.main.transform.position = cameraPos;
-        };
-
-        //At top edge
-        if(0.9 < pos.y) {
-            cameraPos.y = cameraPos.y + 8;
-            Camera.main.transform.position = cameraPos;
-        };
     }
 }

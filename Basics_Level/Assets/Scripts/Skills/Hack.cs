@@ -61,6 +61,6 @@ public class Hack : MonoBehaviour
    }
    void ShowDisplay()
    {
-        hackDisplay.text ="text";
+        hackDisplay.text ="\u221E";
    }
 }
